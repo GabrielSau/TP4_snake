@@ -14,7 +14,7 @@ Vous pouvez ensuite vous déplacer avec les flèches(haut, bas, gauche, droite).
 Il y a une restriction, le serpent ne peut pas faire demi-tour. Si il va à gauche, vous ne pouvez pas aller à droite directement, la touche est bloqué pareil pour les autres sens.
 
 Lorsque vous touchez votre propre corps ou un mur alors vous perdez et un message disant Game Over s'affiche.   
-Mais ce n'est pas fini, vous pouvez rejouer en appuyant sur la touche R de votr clavier
+Mais ce n'est pas fini, vous pouvez rejouer en appuyant sur la touche R de votre clavier
 
 Et enfin, la mise en pause de votre jeu est disponible en cliquant sur la touche P de votre clavier.  
 Pour reprendre le jeu après la mise en pause, rien de plus simple, rappuyer sur P.
