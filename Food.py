@@ -7,8 +7,8 @@ class Food(MovingEntity):
     def __init__(self):
         """Initialize the food objects"""
         super().__init__()
-        self.x = 0
-        self.y = 0
+        self._x = 0
+        self._y = 0
 
     def draw(self, screen):
         """Draw the food on the screen
@@ -19,8 +19,8 @@ class Food(MovingEntity):
         pygame.draw.rect(
             screen, 
             (255, 0, 0), 
-            (self.x, 
-             self.y, 
+            (self._x, 
+             self._y, 
              self.CELL_SIZE, 
              self.CELL_SIZE
             )
@@ -29,7 +29,7 @@ class Food(MovingEntity):
     def pos(self):
         """Return the current position of the food"""
 
-        return (self.x, self.y)
+        return (self._x, self._y)
 
     def respawn(self, occupied_positions):
         """
@@ -48,8 +48,8 @@ class Food(MovingEntity):
             
             # Ensure the new position is not occupied by the snake
             if (x, y) not in occupied_positions:
-                self.x = x
-                self.y = y
+                self._x = x
+                self._y = y
                 break
 
     @property
