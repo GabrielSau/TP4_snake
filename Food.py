@@ -1,43 +1,57 @@
 import pygame
 import random
-import MovingEntity
-import Entity
+from MovingEntity import MovingEntity
 
 
-class Food(Entity):
+class Food(MovingEntity):
     def __init__(self):
-        """Initialize the food object."""
-        self._x = 0
-        self._y = 0
+        """Initialize the food objects"""
+        super().__init__()
+        self.x = 0
+        self.y = 0
 
     def draw(self, screen):
-        """Draw the food on the screen.
+        """Draw the food on the screen
         
         args:
-            screen: The pygame screen surface where the food will be drawn.
+            screen: The pygame screen surface where the food will be drawn
         """
-
-        cell = MovingEntity.CELL_SIZE
-        pygame.draw.rect(screen, (255, 0, 0), (self.x, self.y, cell, cell))
-
-
-        pass
+        pygame.draw.rect(
+            screen, 
+            (255, 0, 0), 
+            (self.x, 
+             self.y, 
+             self.CELL_SIZE, 
+             self.CELL_SIZE
+            )
+        )
 
     def pos(self):
-        """Return the current position of the food."""
+        """Return the current position of the food"""
 
         return (self.x, self.y)
 
     def respawn(self, occupied_positions):
         """
-        Respawn the food at a random position not occupied by the snake.
+        Respawn the food at a random position not occupied by the snake
         
         args:
-            occupied_positions: A list of tuples representing positions occupied by the snake.
+            occupied_positions: A list of tuples representing positions occupied by the snake
         """
+        surface = pygame.display.get_surface()
+        max_x = (surface.get_width() // MovingEntity.CELL_SIZE) -1
+        max_y = (surface.get_height() // MovingEntity.CELL_SIZE) - 1
 
-        pass
-    
+        while True:
+            x = random.randint(0, max_x) * self.CELL_SIZE
+            y = random.randint(0, max_y) * self.CELL_SIZE
+            
+            # Ensure the new position is not occupied by the snake
+            if (x, y) not in occupied_positions:
+                self.x = x
+                self.y = y
+                break
+
     @property
     def x(self):
         return self._x
