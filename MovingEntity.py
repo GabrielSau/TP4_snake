@@ -25,6 +25,9 @@ class MovingEntity(Entity):
     def set_default_speed(self, value:int):
         """
         Set the default speed of the entity
+
+        Args:
+            value: An integer representing the speed
         """
         if value > 0:
             self._speed = value
