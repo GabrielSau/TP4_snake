@@ -31,7 +31,6 @@ class Snake(MovingEntity):
             self.game_over = True
             return
 
-           
         # Check for wall collision
         if (new_head[0] < 0 or new_head[0] >= game.WIDTH or
             new_head[1] < 0 or new_head[1] >= game.HEIGHT):

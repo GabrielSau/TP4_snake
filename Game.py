@@ -6,6 +6,7 @@ class Game:
     WIDTH = 600
     HEIGHT = 400
     BG_COLOR = (0, 0, 0)
+    FRAME_RATE = 10
 
     def __init__(self):
         """Initialize the game"""
@@ -98,7 +99,7 @@ class Game:
         """Run the main game loop"""
         running = True
         while running:
-            self.clock.tick(10)  # Control the frame rate
+            self.clock.tick(self.FRAME_RATE)  # Control the frame rate
             running = self.handle_events()
             if not self.pause:
                 self.update()
